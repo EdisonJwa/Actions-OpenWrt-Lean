@@ -42,6 +42,12 @@ jobs:
         cd openwrt
         git clone -b openwrt-18.06 https://github.com/rosywrt/luci-theme-rosy.git package/luci-theme-rosy
 
+    - name: Clone - openwrt plugin source ssr
+      run: |
+        cd openwrt
+        git clone https://github.com/fw876/helloworld.git
+        cp -r helloworld/luci-app-ssr-plus package/
+
     - name: Update - openwrt source update
       run: |
         cd openwrt
@@ -51,12 +57,6 @@ jobs:
       run: |
         cd openwrt
         ./scripts/feeds install -a
-
-    - name: Fix Mac80211 error
-      run: |
-        rm -rf openwrt/package/kernel/mac80211
-        git clone https://github.com/openwrt/openwrt openwrt-official
-        cp -r openwrt-official/package/kernel/mac80211 openwrt/package/kernel/mac80211
 
     - name: Config - copy build config
       run: |
