@@ -14,9 +14,6 @@ on:
   push:
     branches: 
       - master
-    tags:        
-      - release
-      - v18.06
 #   schedule:
 #     - cron: '0 15 * * 4'
 
