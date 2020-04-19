@@ -36,6 +36,7 @@ jobs:
     - name: Clone - Lean openwrt source code
       run: |
         git clone https://github.com/coolsnowwolf/lede openwrt
+        sed -e '/openwrt.proxy.ustclug.org/d' openwrt/package/lean/default-settings/files/zzz-default-settings > openwrt/package/lean/default-settings/files/zzz-default-settings 
 
     - name: Clone - openwrt plugin source
       run: |
